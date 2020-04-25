@@ -1,5 +1,6 @@
 # API Requests handling Authentication and Authorization
 class AuthorizationController < ApplicationController
+  include BCrypt
   # Register method
   def register
     # Define variables from the request
