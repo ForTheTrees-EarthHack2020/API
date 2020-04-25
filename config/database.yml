@@ -2,9 +2,9 @@ default: &default
   adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: utf8mb4
-  username: Rails.application.credentials.dig(:db, :username)
-  password: Rails.application.credentials.dig(:db, :password)
-  host: Rails.application.credentials.dig(:db, :host)
+  username: <%= Rails.application.credentials.dig(:db, :username) %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: <%= Rails.application.credentials.dig(:db, :host) %>
   port: 3306
   timeout: 5000
 
