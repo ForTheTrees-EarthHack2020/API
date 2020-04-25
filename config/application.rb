@@ -35,7 +35,12 @@ module ForTheTrees
     config.api_only = true
 
     Raven.configure do |config|
-      config.dsn = Rails.application.credentials.dig(:raven_dsn)
+      user = Rails.application.credentials.dig(:raven, :user)
+      pass = Rails.application.credentials.dig(:raven, :pass)
+      o = Rails.application.credentials.dig(:raven, :o)
+      id = Rails.application.credentials.dig(:raven, :id)
+
+      config.dsn = "https://#{user}:#{pass}@#{o}.ingest.sentry.io/#{id}"
     end
   end
 end
