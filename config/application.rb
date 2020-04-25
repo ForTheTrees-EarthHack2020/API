@@ -33,5 +33,9 @@ module ForTheTrees
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Raven.configure do |config|
+      config.dsn = Rails.application.credentials.dig(:raven_dsn)
+    end
   end
 end
