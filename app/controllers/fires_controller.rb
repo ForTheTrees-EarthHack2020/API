@@ -95,6 +95,13 @@ class FiresController < ApplicationController
     end
     user = User.find_by(id: fire.userid)
 
-    json_response({ "image": fire.image, "who": fire.reporter, "phone", fire.phone, "x": fire.x, "y", fire.y, "reported": fire.reported }, 400)
+    json_response({
+      "image": fire.image,
+      "who": fire.reporter,
+      "phone": fire.phone,
+      "x": fire.x,
+      "y", fire.y,
+      "reported": fire.reported
+      }, 400)
   end
 end
