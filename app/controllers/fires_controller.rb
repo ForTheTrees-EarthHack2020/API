@@ -93,7 +93,7 @@ class FiresController < ApplicationController
       json_response({ "status": 'error', "error": 'invalid code' }, 400)
       return
     end
-    user = User.find_by(id: fire.userid)
+    user = User.find_by(userid: fire.userid)
 
     json_response({
       "image": fire.image,
