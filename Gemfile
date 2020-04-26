@@ -22,6 +22,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Sentry Raven to catch errors
 gem "sentry-raven"
 
+# Use Geokit to find distance between coordinate
+gem 'geokit'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
