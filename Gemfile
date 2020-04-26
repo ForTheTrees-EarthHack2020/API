@@ -25,6 +25,9 @@ gem "sentry-raven"
 # Use Geokit to find distance between coordinate
 gem 'geokit'
 
+# Use AWS to store the images
+gem 'aws-sdk-s3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
