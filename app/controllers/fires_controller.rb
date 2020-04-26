@@ -1,0 +1,2 @@
+class FiresController < ApplicationController
+end
