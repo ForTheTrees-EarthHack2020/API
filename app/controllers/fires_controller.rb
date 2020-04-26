@@ -95,18 +95,6 @@ class FiresController < ApplicationController
     end
     user = User.find_by(id: fire.userid)
 
-    <img src="<%= @fire.image %>">
-    <p>Who Reported the Fire: <%= @fire.image %></p>
-    <p>Phone Number of Reporter: <%= @fire_user.phone %></p>
-    <p>
-      Aproximate Location:
-      <ul>
-        <li>X: <%= @fire.x %></li>
-        <li>Y: <%= @fire.y %></li>
-      </ul>
-    </p>
-    <p>Time: <%= @fire.reported %></p>
-
     json_response({ "image": fire.image, "who": fire.reporter, "phone", fire.phone, "x": fire.x, "y", fire.y, "reported": fire.reported }, 400)
   end
 end
