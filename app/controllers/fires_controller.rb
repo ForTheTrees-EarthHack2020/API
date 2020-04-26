@@ -45,7 +45,7 @@ class FiresController < ApplicationController
       )
       url = "https://for-the-trees.s3.us-east-2.amazonaws.com/#{name}"
 
-      Fire.create(x: x, y: y, firecode: otc, image: url, userid: user.id)
+      Fire.create(x: x, y: y, firecode: otc, image: url, userid: user.id, reporter: reporter, phone: phone)
       json_response({ "status": 'success', 'code': otc }, 201)
     else
       json_response({ "status": 'error', 'reason': 'no fire found' }, 400)
@@ -80,5 +80,33 @@ class FiresController < ApplicationController
     end
 
     json_response({ "status": 'success', "fires": fires }, 200)
+  end
+
+  # Fire from Code for other page
+  def fire_from_code
+    if params['code'].nil?
+      json_response({ "status": 'error', "error": 'invalid code' }, 400)
+      return
+    end
+    fire = Fire.find_by(firecode: params['code'])
+    if fire.nil?
+      json_response({ "status": 'error', "error": 'invalid code' }, 400)
+      return
+    end
+    user = User.find_by(id: fire.userid)
+
+    <img src="<%= @fire.image %>">
+    <p>Who Reported the Fire: <%= @fire.image %></p>
+    <p>Phone Number of Reporter: <%= @fire_user.phone %></p>
+    <p>
+      Aproximate Location:
+      <ul>
+        <li>X: <%= @fire.x %></li>
+        <li>Y: <%= @fire.y %></li>
+      </ul>
+    </p>
+    <p>Time: <%= @fire.reported %></p>
+
+    json_response({ "image": fire.image, "who": fire.reporter, "phone", fire.phone, "x": fire.x, "y", fire.y, "reported": fire.reported }, 400)
   end
 end
