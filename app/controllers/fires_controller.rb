@@ -102,6 +102,6 @@ class FiresController < ApplicationController
       "x": fire.x,
       "y": fire.y,
       "reported": fire.reported
-      }, 400)
+      }, 200)
   end
 end
