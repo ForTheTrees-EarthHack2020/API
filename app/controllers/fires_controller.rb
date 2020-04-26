@@ -100,7 +100,7 @@ class FiresController < ApplicationController
       "who": fire.reporter,
       "phone": fire.phone,
       "x": fire.x,
-      "y", fire.y,
+      "y": fire.y,
       "reported": fire.reported
       }, 400)
   end
