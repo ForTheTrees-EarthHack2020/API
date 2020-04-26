@@ -12,7 +12,7 @@ class FiresController < ApplicationController
 
     user = User.find_by(api: key)
     if user.nil?
-      json_response({ "error": 'Auth not valid' }, 401)
+      json_response({ "status": 'error', "error": 'Auth not valid' }, 401)
       return
     end
 
@@ -62,7 +62,7 @@ class FiresController < ApplicationController
 
     user = User.find_by(api: key)
     if user.nil?
-      json_response({ "error": 'Auth not valid' }, 401)
+      json_response({ "status": 'error', "error": 'Auth not valid' }, 401)
       return
     end
 
@@ -79,6 +79,6 @@ class FiresController < ApplicationController
       end
     end
 
-    json_response({ "fires": fires }, 200)
+    json_response({ "status": 'success', "fires": fires }, 200)
   end
 end
